@@ -25,7 +25,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { AzNg2DynamicFormsModule } from 'az-ng2-dynamic-forms';
+import { AzNg2DynamicFormsBasicUIModule } from 'az-ng2-dynamic-forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { AzNg2DynamicFormsModule } from 'az-ng2-dynamic-forms';
     BrowserModule,
 
     // Specify your library as an import
-    AzNg2DynamicFormsModule
+    AzNg2DynamicFormsBasicUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]

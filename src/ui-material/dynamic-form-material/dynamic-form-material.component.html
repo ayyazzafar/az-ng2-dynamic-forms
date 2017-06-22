@@ -2,7 +2,7 @@
 
   <span *ngIf="!groupControl">
     <ng-container *ngIf="model.controlType!=='array'">
-        <md-input-container color="primary" [ngClass]="model.containerClasses">
+        <md-input-container color="primary" [ngClass]="model.parentClasses">
        <input mdInput   [ngClass]="model.classes" *ngIf="model.controlType=='textbox'" [type]="model.type" [value]="model.value" [placeholder]="model.placeholder" [formControlName]="model.key"
     />
 
