@@ -1,0 +1,36 @@
+<div [formGroup]="group">
+
+  <span *ngIf="!groupControl">
+    <ng-container *ngIf="model.controlType!=='array'">
+       <input [class]="model.classes" *ngIf="model.controlType=='textbox'" [type]="model.type" [value]="model.value" [placeholder]="model.placeholder" [formControlName]="model.key"
+    />
+
+    <textarea
+      [class]="model.classes" *ngIf="model.controlType=='textarea'"  [value]="model.value" [attr.rows]="model.rows" [placeholder]="model.placeholder" [formControlName]="model.key"
+    ></textarea>
+      <br>
+    </ng-container>
+     
+
+    <span *ngIf="model.controlType=='array'" [formArrayName]="model.key">
+      <dynamic-form-basic-control
+         *ngFor="let arrayModel of model.values; let index = index;"
+         [group]="group.controls[model.key]"
+         [model] = "arrayModel"
+         [groupControl] =  "true" 
+         [groupControlIndex] =  "index"
+      ></dynamic-form-basic-control>
+    </span>
+
+  </span>
+
+  <span *ngIf="groupControl" [formGroupName]="groupControlIndex">
+      
+      <dynamic-form-basic-control
+         [group]="group.controls[groupControlIndex]"
+         [model] = "model"
+      ></dynamic-form-basic-control>
+    </span>
+
+
+</div>

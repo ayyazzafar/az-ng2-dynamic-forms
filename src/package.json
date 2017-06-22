@@ -1,0 +1,26 @@
+{
+  "name": "az-ng2-dynamic-forms",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayyazzafar/az-ng2-dynamic-forms.git"
+  },
+  "author": {
+    "name": "Ayyaz",
+    "email": "contact@ayyaz.io"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayyazzafar/az-ng2-dynamic-forms.git/issues"
+  },
+  "module": "az-ng2-dynamic-forms.js",
+  "typings": "az-ng2-dynamic-forms.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

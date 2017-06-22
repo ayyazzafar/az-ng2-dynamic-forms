@@ -1,0 +1,52 @@
+<div [formGroup]="group">
+
+  <span *ngIf="!groupControl">
+    <ng-container *ngIf="model.controlType!=='array'">
+        <md-input-container color="primary" [ngClass]="model.containerClasses">
+       <input mdInput   [ngClass]="model.classes" *ngIf="model.controlType=='textbox'" [type]="model.type" [value]="model.value" [placeholder]="model.placeholder" [formControlName]="model.key"
+    />
+
+    <textarea mdInput
+      [ngClass]="model.classes" *ngIf="model.controlType=='textarea'"  [value]="model.value" [attr.rows]="model.rows" [placeholder]="model.placeholder" [formControlName]="model.key"
+    ></textarea>
+        </md-input-container>
+
+      <!-- Animated error-->
+    <div 
+        [@itemEnter]="
+        group.controls[model.key].touched && 
+        !group.controls[model.key].valid?'active':'hidden'
+        " 
+        class="errorMessage"
+        *ngIf="
+        group.controls[model.key].touched && 
+        !group.controls[model.key].valid
+        ">
+            {{model.label || model.key}} is required.
+    </div>
+    <!-- Animated error-->
+    </ng-container>
+     
+
+    <span *ngIf="model.controlType=='array'" [formArrayName]="model.key">
+      <dynamic-form-material-control
+         *ngFor="let arrayModel of model.values; let index = index;"
+         [group]="group.controls[model.key]"
+         [model] = "arrayModel"
+         [groupControl] =  "true" 
+         [groupControlIndex] =  "index"
+      ></dynamic-form-material-control>
+    </span>
+
+  </span>
+
+  <span *ngIf="groupControl" [formGroupName]="groupControlIndex">
+      
+      <dynamic-form-material-control
+         [group]="group.controls[groupControlIndex]"
+         [model] = "model"
+      ></dynamic-form-material-control>
+    </span>
+
+
+</div>
